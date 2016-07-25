@@ -21,7 +21,7 @@ void setup()
 {
   size(400,400,P3D);
   loadModel(); 
-  Vertex vec = verticeMaster.findVertex(new PVector(0,0,-1.0));
+  Vertex vec = verticeMaster.findVertex(new PVector(0,0,0));
   //Vertex vec = verticeMaster.verticeList.get(0);
   println(vec.vertex);
   nextVectorToVisit = vec;
@@ -43,6 +43,7 @@ void draw()
   
   strokeWeight(0.02f);
   stroke(255,70);
+  noFill();
   beginShape();
   for(Vertex v : pathList)
   {
@@ -58,7 +59,7 @@ void draw()
 void loadModel()
 {
   // Load model
-  model = loadShape("hShape.obj");
+  model = loadShape("arrow.obj");
   
   // Iterate each face
   for (int _childAcc=0; _childAcc<model.getChildCount();_childAcc++)
