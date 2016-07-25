@@ -49,7 +49,7 @@ void draw()
 void loadModel()
 {
   // Load model
-  model = loadShape("cubesmall.obj");
+  model = loadShape("hShape.obj");
   
   // Iterate each face
   for (int _childAcc=0; _childAcc<model.getChildCount();_childAcc++)
