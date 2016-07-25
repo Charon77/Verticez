@@ -204,25 +204,25 @@ void drawModel()
     case EDGE:
     {
       // Iterate each face
-  for (int _childAcc=0; _childAcc<model.getChildCount();_childAcc++)
-  {
-    PShape childShape = model.getChild(_childAcc);
-    
-    // Iterate each vertices
-    for (int _vertexAcc=0; _vertexAcc<childShape.getVertexCount(); _vertexAcc++)
-    {
-      PVector childVector = roundVector(childShape.getVertex(_vertexAcc));
-      PVector prevChildVector;
-      
-      if (_vertexAcc>0)
+      for (int _childAcc=0; _childAcc<model.getChildCount();_childAcc++)
       {
-        prevChildVector = roundVector(childShape.getVertex(_vertexAcc-1));
+        PShape childShape = model.getChild(_childAcc);
         
-        drawLineFromVec(prevChildVector,childVector);
-        
+        // Iterate each vertices
+        for (int _vertexAcc=0; _vertexAcc<childShape.getVertexCount(); _vertexAcc++)
+        {
+          PVector childVector = roundVector(childShape.getVertex(_vertexAcc));
+          PVector prevChildVector;
+          
+          if (_vertexAcc>0)
+          {
+            prevChildVector = roundVector(childShape.getVertex(_vertexAcc-1));
+            
+            drawLineFromVec(prevChildVector,childVector);
+            
+          }
+        }
       }
-    }
-  }
     }
     break;
     
