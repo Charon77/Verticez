@@ -6,6 +6,8 @@ ArrayList<Vertex> pathList = new ArrayList<Vertex>();
 
 float tx, ty, tz;
 
+Vertex nextVectorToVisit = null;
+
 void setup()
 {
   size(400,400,P3D);
@@ -13,8 +15,8 @@ void setup()
   Vertex vec = verticeMaster.findVertex(new PVector(0,0,0));
   //Vertex vec = verticeMaster.verticeList.get(0);
   println(vec.vertex);
-  
-  vec.findPath(pathList);
+    
+  nextVectorToVisit = vec;
   //println(pathList.size());
 }
 
@@ -79,4 +81,10 @@ void mouseDragged()
   ty-=x*(mouseX-pmouseX);
   tx-=x*(mouseY-pmouseY);
   
+}
+
+
+void keyPressed()
+{
+  nextVectorToVisit = nextVectorToVisit.findPath(pathList);
 }

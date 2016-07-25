@@ -44,7 +44,7 @@ class Vertex
     //print();
   }
   
-  void findPath(ArrayList<Vertex> trail)
+  Vertex findPath(ArrayList<Vertex> trail)
   {
         
     /*
@@ -64,43 +64,39 @@ class Vertex
     /* -X */
     if(x_min != null && !x_min.visited)
     {
-      x_min.findPath(trail);
-      return;
+      return x_min;
     }
     
     /* -Z */
     if(z_min != null && !z_min.visited)
     {
-      z_min.findPath(trail);
-      return;
+      return z_min;
     }
     
     /* +X */
     if(x_plus != null && !x_plus.visited)
     {
-      x_plus.findPath(trail);
-      return;
+      return x_plus;
     }
     
     /* +Z */
     if(z_plus != null && !z_plus.visited)
     {
-      z_plus.findPath(trail);
-      return;
+      return z_plus;
     }
     
     /* +Y */
     if(y_plus != null && !y_plus.visited)
     {
-      y_plus.findPath(trail);
-      return;
+      return y_plus;
     }
     /* -Y */
     if(y_min != null && !y_min.visited)
     {
-      y_min.findPath(trail);
-      return;
+      return y_min;
     }
+    
+    return null;
    
   }
   
