@@ -11,7 +11,8 @@ Vertex nextVectorToVisit = null;
 enum DrawMode
 {
     SOLID,
-    WIRE
+    WIRE,
+    EDGE
 };
 
 DrawMode drawMode = DrawMode.SOLID;
@@ -113,6 +114,9 @@ void keyPressed()
       case 2:
         drawMode = DrawMode.WIRE;
       break;
+      case 3:
+        drawMode = DrawMode.EDGE;
+      break;
     }
     
     return;
@@ -194,6 +198,31 @@ void drawModel()
           }
         }
       }
+    }
+    break;
+    
+    case EDGE:
+    {
+      // Iterate each face
+  for (int _childAcc=0; _childAcc<model.getChildCount();_childAcc++)
+  {
+    PShape childShape = model.getChild(_childAcc);
+    
+    // Iterate each vertices
+    for (int _vertexAcc=0; _vertexAcc<childShape.getVertexCount(); _vertexAcc++)
+    {
+      PVector childVector = roundVector(childShape.getVertex(_vertexAcc));
+      PVector prevChildVector;
+      
+      if (_vertexAcc>0)
+      {
+        prevChildVector = roundVector(childShape.getVertex(_vertexAcc-1));
+        
+        drawLineFromVec(prevChildVector,childVector);
+        
+      }
+    }
+  }
     }
     break;
     
