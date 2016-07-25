@@ -183,7 +183,7 @@ void drawModel()
             
             // Dots
             stroke(childVertex.isVisited() ? color(0, 255,0) : color (255,0,0));            
-            strokeWeight(20);
+            strokeWeight(10 * zoom);
             point(
               childVector.x,
               childVector.y,
