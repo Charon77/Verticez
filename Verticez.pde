@@ -86,5 +86,13 @@ void mouseDragged()
 
 void keyPressed()
 {
-  nextVectorToVisit = nextVectorToVisit.findPath(pathList);
+  if (nextVectorToVisit != null)
+  {
+    nextVectorToVisit = nextVectorToVisit.findPath(pathList);
+  }
+  else
+  {
+    println("Path is done, can't continue.");
+  }
+  
 }
