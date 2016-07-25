@@ -30,18 +30,20 @@ class Vertex
   
   void print()
   {
-    println(vertex);
-    println(x_plus != null);
-    println(y_plus != null);
-    println(z_plus != null);
-    println(x_min  != null);
-    println(y_min  != null);
-    println(z_min  != null);
+    println("");
+    println("X",x());
+    println("Y",y());
+    println("Z",z());
   }
   void visit()
   {
     visited = true;
     //print();
+  }
+  
+  public boolean isVisited()
+  {
+    return visited;
   }
   
   Vertex findPath(ArrayList<Vertex> trail)
@@ -59,7 +61,11 @@ class Vertex
     trail.add(this);
     
     
-    
+    /* -Y */
+    if(y_min != null && !y_min.visited)
+    {
+      return y_min;
+    }
     
     /* -X */
     if(x_min != null && !x_min.visited)
@@ -90,11 +96,7 @@ class Vertex
     {
       return y_plus;
     }
-    /* -Y */
-    if(y_min != null && !y_min.visited)
-    {
-      return y_min;
-    }
+    
     
     return null;
    
