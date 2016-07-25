@@ -21,8 +21,9 @@ void setup()
 {
   size(400,400,P3D);
   loadModel(); 
-  Vertex vec = verticeMaster.findVertex(new PVector(0,0,0));
+  //Vertex vec = verticeMaster.findVertex(new PVector(0,0,0));
   //Vertex vec = verticeMaster.verticeList.get(0);
+  Vertex vec = verticeMaster.findVertex(verticeMaster.lowestPos);
   println(vec.vertex);
   nextVectorToVisit = vec;
   //println(pathList.size());
@@ -59,7 +60,7 @@ void draw()
 void loadModel()
 {
   // Load model
-  model = loadShape("arrow.obj");
+  model = loadShape("hBShape.obj");
   
   // Iterate each face
   for (int _childAcc=0; _childAcc<model.getChildCount();_childAcc++)
