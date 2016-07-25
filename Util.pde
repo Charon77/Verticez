@@ -24,10 +24,15 @@ void drawLineFromVec(PVector a, PVector b)
 
 void drawAxes()
 {
+ //X
  stroke(255,0,0,160);
- line(0,0,0,100,0,0);  
+ line(0,0,0,100,0,0);
+ 
+ //Y
  stroke(0,255,0,160);
  line(0,0,0,0,100,0);
+ 
+ //Z
  stroke(0,0,255,160);
  line(0,0,0,0,0,100);
 }
