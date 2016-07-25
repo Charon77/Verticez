@@ -12,7 +12,8 @@ enum DrawMode
 {
     SOLID,
     WIRE,
-    EDGE
+    EDGE,
+    NONE
 };
 
 DrawMode drawMode = DrawMode.SOLID;
@@ -122,6 +123,9 @@ void keyPressed()
       break;
       case 3:
         drawMode = DrawMode.EDGE;
+      break;
+      case 4:
+        drawMode = DrawMode.NONE;
       break;
     }
     
@@ -233,6 +237,11 @@ void drawModel()
           }
         }
       }
+    }
+    break;
+    
+    case NONE:
+    {
     }
     break;
     
