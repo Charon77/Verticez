@@ -1,6 +1,5 @@
 PShape model;
 VerticeMaster verticeMaster = new VerticeMaster();
-int counter = 0;
 float zoom = 1.0f;
 ArrayList<Vertex> pathList = new ArrayList<Vertex>();
 
@@ -41,15 +40,12 @@ void draw()
   rotateY(ty);
   rotateZ(tz);
   drawModel();
-  int i = 0;
   
   strokeWeight(0.02f);
   stroke(255,70);
   beginShape();
   for(Vertex v : pathList)
   {
-    i++;
-    if(i> counter) break;
     vertex(v.vertex.x,v.vertex.y,v.vertex.z);
   }
   endShape();
@@ -57,7 +53,6 @@ void draw()
   //drawAxes();
   
   //delay(100);
-  counter++;
 }
 
 void loadModel()

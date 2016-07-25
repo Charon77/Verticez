@@ -16,7 +16,6 @@ Float roundFloat (Float f)
 
 void drawLineFromVec(PVector a, PVector b)
 {
-  //if(counter<0) return;
   stroke(255);
   strokeWeight(0.1);
   line(a.x,a.y,a.z,b.x,b.y,b.z);
