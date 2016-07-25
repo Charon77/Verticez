@@ -82,6 +82,12 @@ void loadModel()
         drawLineFromVec(prevChildVector,childVector);
         verticeMaster.addVertex(prevChildVector,childVector);
       }
+      else
+      {
+        prevChildVector = roundVector(childShape.getVertex(childShape.getVertexCount()-1));
+        drawLineFromVec(prevChildVector,childVector);
+        verticeMaster.addVertex(prevChildVector,childVector);
+      }
     }
   }
 }
@@ -220,6 +226,10 @@ void drawModel()
             
             drawLineFromVec(prevChildVector,childVector);
             
+          }
+          else
+          {
+            drawLineFromVec(childShape.getVertex(0),childShape.getVertex(childShape.getVertexCount()-1));
           }
         }
       }
