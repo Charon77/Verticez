@@ -120,4 +120,42 @@ class VerticeMaster
     println(target);
     throw new Error("Not found");
   }
+  
+  // Clears all visited flag from vertices
+  void clearVisited()
+  {
+    for( Vertex v : verticeList)
+    {
+      v.unVisit();
+    }
+  }
+  
+  Vertex findLongestPath()
+  {
+    
+    int longestPathLength = 0;
+    Vertex bestStartingPoint = null;
+    
+    for(Vertex startingVertexIteration : verticeList)
+    {
+      Vertex currentVertex = startingVertexIteration;
+      Vertex nextVertex;
+      ArrayList<Vertex> breadcrumbs = new ArrayList<Vertex>();
+      while ((nextVertex = currentVertex.findPath(breadcrumbs)) != null)
+      {
+        currentVertex=nextVertex;
+      }
+      println(breadcrumbs.size());
+      
+      if (breadcrumbs.size() > longestPathLength)
+      {
+        longestPathLength = breadcrumbs.size();
+        bestStartingPoint = startingVertexIteration;
+      }
+      
+      clearVisited();
+    }
+    println("Best so far: ", longestPathLength);
+    return bestStartingPoint;
+  }
 }

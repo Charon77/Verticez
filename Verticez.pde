@@ -23,10 +23,17 @@ void setup()
   loadModel(); 
   //Vertex vec = verticeMaster.findVertex(new PVector(0,0,0));
   //Vertex vec = verticeMaster.verticeList.get(0);
-  Vertex vec = verticeMaster.findVertex(verticeMaster.lowestPos);
-  println(vec.vertex);
+  //Vertex vec = verticeMaster.findVertex(verticeMaster.lowestPos);
+  
+  Vertex vec = verticeMaster.findLongestPath();
+  
   nextVectorToVisit = vec;
   //println(pathList.size());
+  
+  // DEBUG
+  // Run some times
+  for (int i=0 ; i<400; i++)
+    nextVectorToVisit = nextVectorToVisit.findPath(pathList);
 }
 
 void draw()

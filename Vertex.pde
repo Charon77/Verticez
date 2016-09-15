@@ -41,6 +41,11 @@ class Vertex
     //print();
   }
   
+  void unVisit()
+  {
+    visited = false;
+  }
+  
   public boolean isVisited()
   {
     return visited;
