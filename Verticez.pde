@@ -16,10 +16,12 @@ enum DrawMode
 };
 
 DrawMode drawMode = DrawMode.SOLID;
-
+PFont myFont;
 void setup()
 {
-  size(400,400,P3D);
+  myFont = createFont("Georgia",42);
+  textFont(myFont);
+  size(600,600,P3D);
   loadModel(); 
   //Vertex vec = verticeMaster.findVertex(new PVector(0,0,0));
   //Vertex vec = verticeMaster.verticeList.get(0);
@@ -31,15 +33,18 @@ void setup()
   //println(pathList.size());
   
   // DEBUG
-  // Run some times
-  for (int i=0 ; i<400; i++)
+  //Run some times
+  for (int i=0 ; i<417; i++)
     nextVectorToVisit = nextVectorToVisit.findPath(pathList);
 }
 
 void draw()
 {
   background(0);
+  text("CODRA: DNA Origami",30,60);
+  
   translate(width/2,height/2);
+  
   rotateX(3*PI/4);
   stroke(255);
   noFill();
@@ -50,7 +55,7 @@ void draw()
   drawModel();
   
   strokeWeight(0.02f);
-  stroke(255,70);
+  stroke(255,230);
   noFill();
   beginShape();
   for(Vertex v : pathList)
@@ -58,6 +63,9 @@ void draw()
     vertex(v.vertex.x,v.vertex.y,v.vertex.z);
   }
   endShape();
+  
+  stroke(255);
+  
   
   //drawAxes();
   
@@ -201,7 +209,7 @@ void drawModel()
             
             // Dots
             stroke(childVertex.isVisited() ? color(0, 255,0) : color (255,0,0));            
-            strokeWeight(10 * zoom);
+            strokeWeight(0.1f * zoom);
             point(
               childVector.x,
               childVector.y,
